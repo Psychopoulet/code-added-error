@@ -10,7 +10,7 @@
 
 // tests
 
-describe("CodeAddedError / toString", () => {
+describe("toString", () => {
 
 	describe("codeAndMessageOnly", () => {
 
