@@ -4,10 +4,10 @@
   "description": "Emulation of basic Error class, with new \"code\" argument and \"file\" & \"line\" static methods",
   "scripts": {
     "compress": "terser ./lib/code-added-error.js --output ./dist/code-added-error.min.js --source-map \"url='code-added-error.min.js.map'\"",
-    "lint": "npx eslint ./lib/**/*.js ./test/**/*.js",
+    "lint": "npm run-script compress && npx eslint ./lib/**/*.js ./test/**/*.js",
     "check-updates": "npx check-version-modules",
     "unit-tests": "npx nyc --reporter=html --reporter=text mocha",
-    "tests": "npm run-script lint && npm run-script check-updates && npm run-script compress && npm run-script unit-tests",
+    "tests": "npm run-script lint && npm run-script check-updates && npm run-script unit-tests",
     "ci": "npm run-script tests && npx nyc report --reporter=text-lcov | coveralls"
   },
   "husky": {
