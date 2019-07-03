@@ -69,12 +69,78 @@ describe("constructor", () => {
 
 	});
 
+	it("should test constructor with object message", () => {
+
+		const err = new CodeAddedError({
+			"message": "This is a test",
+			"code": "TEST"
+		});
+
+		assert.strictEqual(typeof err.message, "string", "It does not generate the wanted Error");
+		assert.strictEqual(err.message, "This is a test", "It does not generate the wanted Error");
+
+		assert.strictEqual(typeof err.code, "string", "It does not generate the wanted Error");
+		assert.strictEqual(err.code, "TEST", "It does not generate the wanted Error");
+
+	});
+
+	it("should test constructor with Error message", () => {
+
+		const err = new CodeAddedError(new Error("This is a test"));
+
+		assert.strictEqual(typeof err.message, "string", "It does not generate the wanted Error");
+		assert.strictEqual(err.message, "This is a test", "It does not generate the wanted Error");
+
+		assert.strictEqual(typeof err.code, "string", "It does not generate the wanted Error");
+		assert.strictEqual(err.code, "UNKNOWN", "It does not generate the wanted Error");
+
+	});
+
+	it("should test constructor with ReferenceError message", () => {
+
+		const err = new CodeAddedError(new ReferenceError("This is a test"));
+
+		assert.strictEqual(typeof err.message, "string", "It does not generate the wanted Error");
+		assert.strictEqual(err.message, "This is a test", "It does not generate the wanted Error");
+
+		assert.strictEqual(typeof err.code, "string", "It does not generate the wanted Error");
+		assert.strictEqual(err.code, "MISSING", "It does not generate the wanted Error");
+
+	});
+
+	it("should test constructor with TypeError message", () => {
+
+		const err = new CodeAddedError(new TypeError("This is a test"));
+
+		assert.strictEqual(typeof err.message, "string", "It does not generate the wanted Error");
+		assert.strictEqual(err.message, "This is a test", "It does not generate the wanted Error");
+
+		assert.strictEqual(typeof err.code, "string", "It does not generate the wanted Error");
+		assert.strictEqual(err.code, "WRONG_TYPE", "It does not generate the wanted Error");
+
+	});
+
+	it("should test constructor with RangeError message", () => {
+
+		const err = new CodeAddedError(new RangeError("This is a test"));
+
+		assert.strictEqual(typeof err.message, "string", "It does not generate the wanted Error");
+		assert.strictEqual(err.message, "This is a test", "It does not generate the wanted Error");
+
+		assert.strictEqual(typeof err.code, "string", "It does not generate the wanted Error");
+		assert.strictEqual(err.code, "RANGE", "It does not generate the wanted Error");
+
+	});
+
 	it("should test constructor with Error message & code", () => {
 
 		const err = new CodeAddedError(new Error("This is a test"), "TEST");
 
 		assert.strictEqual(typeof err.message, "string", "It does not generate the wanted Error");
 		assert.strictEqual(err.message, "This is a test", "It does not generate the wanted Error");
+
+		assert.strictEqual(typeof err.code, "string", "It does not generate the wanted Error");
+		assert.strictEqual(err.code, "TEST", "It does not generate the wanted Error");
 
 	});
 

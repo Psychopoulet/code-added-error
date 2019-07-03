@@ -1,6 +1,6 @@
 /// <reference path="../../lib/index.d.ts" />
 
-import CodeAddedError = require('../../lib/code-added-error.js');
+import * as CodeAddedError from '../../lib/code-added-error.js';
 
 console.log(CodeAddedError);
 
