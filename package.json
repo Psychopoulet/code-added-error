@@ -1,6 +1,6 @@
 {
   "name": "code-added-error",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Emulation of basic Error class, with new \"code\" argument and \"file\" & \"line\" static methods",
   "main": "lib/code-added-error.js",
   "scripts": {
